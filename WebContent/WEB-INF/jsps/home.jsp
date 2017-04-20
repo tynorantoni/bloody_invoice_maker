@@ -10,13 +10,7 @@
 </head>
 <body>
 
-<c:out value="${idHosp}"></c:out>
-<c:out value="${nameHosp}"></c:out>
-<c:forEach var="row" items="${hospitals}">
-    id ${row.idHosp}<br/>
-    name ${row.nameHosp}<br/>
-    
-</c:forEach>
+
 <p><a href="${pageContext.request.contextPath}/orderForm">Formularz</a></p>
 </body>
 </html>

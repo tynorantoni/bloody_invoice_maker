@@ -1,8 +1,11 @@
 package pl.pawelSz.Spring.Web.DAO;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Hospitals {
 
 	private int idHosp;
+	@Autowired // czy to potrzebne...
 	private String nameHosp;
 	private String addressHosp;
 	
@@ -11,7 +14,9 @@ public class Hospitals {
 		
 	}
 
-
+	public Hospitals(String nameHosp){
+		this.nameHosp=nameHosp;
+	}
 	public Hospitals(int idHosp, String nameHosp, String addressHosp) {
 	
 		this.idHosp = idHosp;
@@ -56,4 +61,5 @@ public class Hospitals {
 				+ "]";
 	}
 	
-}
+	}
+
