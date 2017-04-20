@@ -1,10 +1,13 @@
 package pl.pawelSz.Spring.Web.DAO;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class OrdersPatient {
 
-	private int idPatient;
-	private int idOrd;
-	private String hospitalPat;
+	private int idOrder;
+	
+	@Autowired   // czy to potrzebne?
+	private String nameHosp;
 	private String namePat;
 	private String surnamePat;
 	private int peselPat;
@@ -15,45 +18,33 @@ public class OrdersPatient {
 	}
 
 
-	public OrdersPatient(int idPatient, int idOrd, String hospitalPat, String namePat, String surnamePat,
-			int peselPat) {
-		super();
-		this.idPatient = idPatient;
-		this.idOrd = idOrd;
-		this.hospitalPat = hospitalPat;
+	public OrdersPatient(int idOrder, String nameHosp, String namePat, String surnamePat, int peselPat) {
+		
+		this.idOrder = idOrder;
+		this.nameHosp = nameHosp;
 		this.namePat = namePat;
 		this.surnamePat = surnamePat;
 		this.peselPat = peselPat;
 	}
 
 
-	public int getIdPatient() {
-		return idPatient;
+	public int getIdOrder() {
+		return idOrder;
 	}
 
 
-	public void setIdPatient(int idPatient) {
-		this.idPatient = idPatient;
+	public void setIdOrder(int idOrder) {
+		this.idOrder = idOrder;
 	}
 
 
-	public int getIdOrd() {
-		return idOrd;
+	public String getNameHosp() {
+		return nameHosp;
 	}
 
 
-	public void setIdOrd(int idOrd) {
-		this.idOrd = idOrd;
-	}
-
-
-	public String getHospitalPat() {
-		return hospitalPat;
-	}
-
-
-	public void setHospitalPat(String hospitalPat) {
-		this.hospitalPat = hospitalPat;
+	public void setNameHosp(String nameHosp) {
+		this.nameHosp = nameHosp;
 	}
 
 
@@ -89,10 +80,10 @@ public class OrdersPatient {
 
 	@Override
 	public String toString() {
-		return "OrdersPatient [idPatient=" + idPatient + ", idOrd=" + idOrd + ", hospitalPat=" + hospitalPat
-				+ ", namePat=" + namePat + ", surnamePat=" + surnamePat + ", peselPat=" + peselPat + "]";
+		return "OrdersPatient [idOrder=" + idOrder + ", nameHosp=" + nameHosp + ", namePat=" + namePat + ", surnamePat="
+				+ surnamePat + ", peselPat=" + peselPat + "]";
 	}
-
-
+	
+	
 	
 }

@@ -28,13 +28,11 @@ public class OffersDAO {
 
 	public List<Hospitals> getHosps() {
 
-		return jdbc.query("select * from hospitals", new RowMapper<Hospitals>() {
+		return jdbc.query("select nameHosp from hospitals", new RowMapper<Hospitals>() {
 
 			public Hospitals mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Hospitals hospital = new Hospitals();
+				Hospitals hospital = new Hospitals("nameHosp");
 				
-				hospital.setIdHosp(rs.getInt("idHosp"));
-				hospital.setAddressHosp(rs.getString("addressHosp"));
 				hospital.setNameHosp(rs.getString("nameHosp"));
 
 				return hospital;
@@ -46,8 +44,19 @@ public class OffersDAO {
 	public boolean createPatient(OrdersPatient ordersPatient){
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(ordersPatient);
 		
-		return jdbc.update("insert into patient (idOrd,hospitalPat,namePat,surnamePat,peselPat) values (:idOrd,:hospitalPat,:namePat,:surnamePat,:peselPat)", param)==1;
+		return jdbc.update("insert into patient (nameHosp,namePat,surnamePat,peselPat) values (:nameHosp,:namePat,:surnamePat,:peselPat)", param)==1;
 	}
+	
+	public boolean createOrder(Orders orders){
+		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(orders);
+		
+		return jdbc.update("insert into orders (KKCZqty,KKCZED5,KKCZEC2,KKPqty,KKPED5,KKPEC2,KKPafqty,KKPafED5,KKPafEC2,FFPqty,FFPEK6,FFPEGB) values (:KKCZqty,:KKCZED5,:KKCZEC2,:KKPqty,:KKPED5,:KKPEC2,:KKPafqty,:KKPafED5,:KKPafEC2,:FFPqty,:FFPEK6,:FFPEGB)", param)==1;
+	}
+	
+	
+	
+	
+	
 	
 //	public boolean update(Offer offer) {
 //		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(offer);

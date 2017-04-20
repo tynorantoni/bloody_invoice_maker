@@ -2,11 +2,20 @@ package pl.pawelSz.Spring.Web.DAO;
 
 public class Orders {
 
-	private int id;
-	private int idOrd;
-	private String productOrd;
-	private String servOrd;
-	private String priceOrd;
+	private int IdOrder;
+	private int KKCZqty;
+	private int KKCZED5;
+	private int KKCZEC2;
+	private int KKPqty;
+	private int KKPED5;
+	private int KKPEC2;
+	private int KKPafqty;
+	private int KKPafED5;
+	private int KKPafEC2;
+	private int FFPqty;
+	private int FFPEK6;
+	private int FFPEGB;
+	
 	
 	
 	public Orders() {
@@ -14,72 +23,190 @@ public class Orders {
 	}
 
 
-	public Orders(int id, int idOrd, String productOrd, String servOrd, String priceOrd) {
+
+	public Orders(int idOrder, int kKCZqty, int kKCZED5, int kKCZEC2, int kKPqty, int kKPED5, int kKPEC2, int kKPafqty,
+			int kKPafED5, int kKPafEC2, int fFPqty, int fFPEK6, int fFPEGB) {
 		super();
-		this.id = id;
-		this.idOrd = idOrd;
-		this.productOrd = productOrd;
-		this.servOrd = servOrd;
-		this.priceOrd = priceOrd;
+		IdOrder = idOrder;
+		KKCZqty = kKCZqty;
+		KKCZED5 = kKCZED5;
+		KKCZEC2 = kKCZEC2;
+		KKPqty = kKPqty;
+		KKPED5 = kKPED5;
+		KKPEC2 = kKPEC2;
+		KKPafqty = kKPafqty;
+		KKPafED5 = kKPafED5;
+		KKPafEC2 = kKPafEC2;
+		FFPqty = fFPqty;
+		FFPEK6 = fFPEK6;
+		FFPEGB = fFPEGB;
 	}
 
 
-	public int getId() {
-		return id;
+
+	public int getIdOrder() {
+		return IdOrder;
 	}
 
 
-	public void setId(int id) {
-		this.id = id;
+
+	public void setIdOrder(int idOrder) {
+		IdOrder = idOrder;
 	}
 
 
-	public int getIdOrd() {
-		return idOrd;
+
+	public int getKKCZqty() {
+		return KKCZqty;
 	}
 
 
-	public void setIdOrd(int idOrd) {
-		this.idOrd = idOrd;
+
+	public void setKKCZqty(int kKCZqty) {
+		KKCZqty = kKCZqty;
 	}
 
 
-	public String getProductOrd() {
-		return productOrd;
+
+	public int getKKCZED5() {
+		return KKCZED5;
 	}
 
 
-	public void setProductOrd(String productOrd) {
-		this.productOrd = productOrd;
+
+	public void setKKCZED5(int kKCZED5) {
+		KKCZED5 = kKCZED5;
 	}
 
 
-	public String getServOrd() {
-		return servOrd;
+
+	public int getKKCZEC2() {
+		return KKCZEC2;
 	}
 
 
-	public void setServOrd(String servOrd) {
-		this.servOrd = servOrd;
+
+	public void setKKCZEC2(int kKCZEC2) {
+		KKCZEC2 = kKCZEC2;
 	}
 
 
-	public String getPriceOrd() {
-		return priceOrd;
+
+	public int getKKPqty() {
+		return KKPqty;
 	}
 
 
-	public void setPriceOrd(String priceOrd) {
-		this.priceOrd = priceOrd;
+
+	public void setKKPqty(int kKPqty) {
+		KKPqty = kKPqty;
 	}
+
+
+
+	public int getKKPED5() {
+		return KKPED5;
+	}
+
+
+
+	public void setKKPED5(int kKPED5) {
+		KKPED5 = kKPED5;
+	}
+
+
+
+	public int getKKPEC2() {
+		return KKPEC2;
+	}
+
+
+
+	public void setKKPEC2(int kKPEC2) {
+		KKPEC2 = kKPEC2;
+	}
+
+
+
+	public int getKKPafqty() {
+		return KKPafqty;
+	}
+
+
+
+	public void setKKPafqty(int kKPafqty) {
+		KKPafqty = kKPafqty;
+	}
+
+
+
+	public int getKKPafED5() {
+		return KKPafED5;
+	}
+
+
+
+	public void setKKPafED5(int kKPafED5) {
+		KKPafED5 = kKPafED5;
+	}
+
+
+
+	public int getKKPafEC2() {
+		return KKPafEC2;
+	}
+
+
+
+	public void setKKPafEC2(int kKPafEC2) {
+		KKPafEC2 = kKPafEC2;
+	}
+
+
+
+	public int getFFPqty() {
+		return FFPqty;
+	}
+
+
+
+	public void setFFPqty(int fFPqty) {
+		FFPqty = fFPqty;
+	}
+
+
+
+	public int getFFPEK6() {
+		return FFPEK6;
+	}
+
+
+
+	public void setFFPEK6(int fFPEK6) {
+		FFPEK6 = fFPEK6;
+	}
+
+
+
+	public int getFFPEGB() {
+		return FFPEGB;
+	}
+
+
+
+	public void setFFPEGB(int fFPEGB) {
+		FFPEGB = fFPEGB;
+	}
+
 
 
 	@Override
 	public String toString() {
-		return "Orders [id=" + id + ", idOrd=" + idOrd + ", productOrd=" + productOrd + ", servOrd=" + servOrd
-				+ ", priceOrd=" + priceOrd + "]";
+		return "Orders [IdOrder=" + IdOrder + ", KKCZqty=" + KKCZqty + ", KKCZED5=" + KKCZED5 + ", KKCZEC2=" + KKCZEC2
+				+ ", KKPqty=" + KKPqty + ", KKPED5=" + KKPED5 + ", KKPEC2=" + KKPEC2 + ", KKPafqty=" + KKPafqty
+				+ ", KKPafED5=" + KKPafED5 + ", KKPafEC2=" + KKPafEC2 + ", FFPqty=" + FFPqty + ", FFPEK6=" + FFPEK6
+				+ ", FFPEGB=" + FFPEGB + "]";
 	}
-
 
 	
 }

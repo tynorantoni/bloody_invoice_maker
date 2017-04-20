@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import pl.pawelSz.Spring.Web.DAO.Hospitals;
 import pl.pawelSz.Spring.Web.DAO.OffersDAO;
+import pl.pawelSz.Spring.Web.DAO.Orders;
+import pl.pawelSz.Spring.Web.DAO.OrdersPatient;
 
 @Service("servicu")
 public class Servicu {
@@ -22,6 +24,17 @@ public class Servicu {
 		
 		public List<Hospitals> getCurrent(){
 			return offersDAO.getHosps();
+		}
+		
+		public void create(OrdersPatient ordersPatient) {
+			offersDAO.createPatient(ordersPatient);
+			
+			
+		}
+		
+		public void create(Orders orders) {
+			offersDAO.createOrder(orders);
+			
 		}
 		
 		
