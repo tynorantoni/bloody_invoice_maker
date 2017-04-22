@@ -2,10 +2,13 @@ package pl.pawelSz.Spring.Web.Controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,7 +20,7 @@ import pl.pawelSz.Spring.Web.Service.Servicu;
 
 @Controller
 public class Controlling {
-	@Autowired
+	
 	private Servicu servicu;
 
 	@Autowired
@@ -32,7 +35,7 @@ public class Controlling {
 	}
 
 	@RequestMapping("/orderForm")
-	public String showForm(Model model) {
+	public String orderForm(Model model) {
 		List<Hospitals> hospital = servicu.getCurrent();
 		model.addAttribute("combinedCommand", new CombinedCommand());
 		model.addAttribute("hospitals", hospital);
@@ -42,20 +45,24 @@ public class Controlling {
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String doCreate(Hospitals hospitals, Model model, OrdersPatient ordersPatient, Orders orders,
-			BindingResult result) {
+	public String create(@ModelAttribute("nameHosp")@Valid Hospitals hospitals,BindingResult result2,
+			@ModelAttribute("ordersPatient")@Valid OrdersPatient ordersPatient,BindingResult result1,
+			@ModelAttribute("orders") @Valid Orders orders, BindingResult result,
+			@ModelAttribute("combinedCommand") @Valid CombinedCommand combinedCommand, BindingResult result3,
+			 Model model) {
 
 		if (result.hasErrors()) {
-			return "error";
-		} else {
+			orderForm(model) ;
+		
+			return "/orderForm";
+		} 
 
-			model.addAttribute("nameHosp", hospitals);
-			model.addAttribute("orders", new Orders());
-			model.addAttribute("ordersPatient", new OrdersPatient());
+//			model.addAttribute("nameHosp", hospitals);
+//			model.addAttribute("orders", new Orders());
+//			model.addAttribute("ordersPatient", new OrdersPatient());
 			servicu.create(ordersPatient);
 			servicu.create(orders);
 
 			return "success";
 		}
 	}
-}

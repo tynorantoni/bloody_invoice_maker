@@ -1,19 +1,33 @@
 package pl.pawelSz.Spring.Web.DAO;
 
+import javax.validation.constraints.NotNull;
+
 public class Orders {
 
 	private int IdOrder;
+	@NotNull(message="Notnull")
 	private int KKCZqty;
+	@NotNull
 	private int KKCZED5;
+	@NotNull
 	private int KKCZEC2;
+	@NotNull
 	private int KKPqty;
+	@NotNull
 	private int KKPED5;
+	@NotNull
 	private int KKPEC2;
+	@NotNull
 	private int KKPafqty;
+	@NotNull
 	private int KKPafED5;
+	@NotNull
 	private int KKPafEC2;
+	@NotNull
 	private int FFPqty;
+	@NotNull
 	private int FFPEK6;
+	@NotNull
 	private int FFPEGB;
 	
 	

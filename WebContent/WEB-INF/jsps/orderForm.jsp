@@ -5,6 +5,8 @@
 
 <html>
 <head>
+<link href="${pageContext.request.contextPath}/static/main.css"
+	rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Formularz zamówień składników krwi</title>
 </head>
@@ -23,7 +25,7 @@
 							<sf:option value="NONE"> --Wybierz Szpital--</sf:option>
 							<sf:options items="${hospitals}" itemValue="nameHosp"
 								itemLabel="nameHosp"></sf:options>
-						</sf:select>
+						</sf:select><br>
 				</sf:form>
 			</tr>
 			<tr>
@@ -32,7 +34,8 @@
 			</tr>
 			<tr>
 				<td>Imię:<br /> <sf:input path="${namePat}" name="namePat"
-						type="text" />
+						type="text" /><br /><sf:errors path="${namePat}" cssClass="error"></sf:errors>
+				<br/><sf:errors path="*" cssClass="error"></sf:errors>
 				</td>
 				<td>KKCz</td>
 				<td><sf:input path="${KKCZqty}" name="KKCZqty" size="1"
@@ -82,6 +85,7 @@
 				<td><input type="submit" value="Generuj Raport" /></td>
 			</tr>
 		</table>
+		
 	</sf:form>
 </body>
 </html>
