@@ -10,9 +10,27 @@
 		<config>src/pl/pawelSz/Spring/Web/Config/dao-context.xml</config>
 		<config>src/pl/pawelSz/Spring/Web/Config/service-context.xml</config>
 		<config>WebContent/WEB-INF/hospital-servlet.xml</config>
+		<config>src/pl/pawelSz/Spring/Web/Config/security-context.xml</config>
+		<config>java:pl.pawelSz.Spring.Web.DAO.CombinedCommand</config>
+		<config>java:pl.pawelSz.Spring.Web.DAO.OffersDAO</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
 	<configSets>
+		<configSet>
+			<name><![CDATA[a]]></name>
+			<allowBeanDefinitionOverriding>true</allowBeanDefinitionOverriding>
+			<incomplete>false</incomplete>
+			<configs>
+				<config>src/pl/pawelSz/Spring/Web/Config/dao-context.xml</config>
+				<config>src/pl/pawelSz/Spring/Web/Config/security-context.xml</config>
+				<config>src/pl/pawelSz/Spring/Web/Config/service-context.xml</config>
+				<config>WebContent/WEB-INF/hospital-servlet.xml</config>
+				<config>java:pl.pawelSz.Spring.Web.DAO.CombinedCommand</config>
+				<config>java:pl.pawelSz.Spring.Web.DAO.OffersDAO</config>
+			</configs>
+			<profiles>
+			</profiles>
+		</configSet>
 	</configSets>
 </beansProjectDescription>

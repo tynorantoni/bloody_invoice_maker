@@ -1,5 +1,9 @@
 package pl.pawelSz.Spring.Web.DAO;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class OrdersPatient {
@@ -8,9 +12,15 @@ public class OrdersPatient {
 	
 	@Autowired   // czy to potrzebne?
 	private String nameHosp;
+	@NotNull(message="Wpisz Imiê!")
+	@Size(min=1, message="dupa")
 	private String namePat;
+	@NotNull
+	
 	private String surnamePat;
-	private int peselPat;
+	@Pattern(regexp="\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d") 
+	
+	private String peselPat;
 	
 	
 	public OrdersPatient() {
@@ -18,7 +28,7 @@ public class OrdersPatient {
 	}
 
 
-	public OrdersPatient(int idOrder, String nameHosp, String namePat, String surnamePat, int peselPat) {
+	public OrdersPatient(int idOrder, String nameHosp, String namePat, String surnamePat, String peselPat) {
 		
 		this.idOrder = idOrder;
 		this.nameHosp = nameHosp;
@@ -68,12 +78,12 @@ public class OrdersPatient {
 	}
 
 
-	public int getPeselPat() {
+	public String getPeselPat() {
 		return peselPat;
 	}
 
 
-	public void setPeselPat(int peselPat) {
+	public void setPeselPat(String peselPat) {
 		this.peselPat = peselPat;
 	}
 
