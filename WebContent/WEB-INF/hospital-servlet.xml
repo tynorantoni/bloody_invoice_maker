@@ -8,11 +8,11 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 
-	<mvc:annotation-driven></mvc:annotation-driven>
+	
 	<context:component-scan base-package="pl.pawelSz.Spring.Web.Controllers">
 	</context:component-scan>
-	
-	<mvc:resources location="/resources/" mapping="/static/*"></mvc:resources>
+	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:resources location="/resources/" mapping="/static/**"></mvc:resources>
 	
 	<bean id="tilesVewResolver"
 		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
@@ -21,7 +21,7 @@
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 	<property name="definitions">
 		<list>
-			<value>WEB-INF/layouts/default.xml</value>
+			<value>/WEB-INF/layouts/default.xml</value>
 		</list>
 	</property>
 	</bean>

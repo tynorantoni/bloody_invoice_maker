@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+
+
+<tiles-definitions>
+  <definition name="base" template="/WEB-INF/layouts/template.jsp">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
+    <put-attribute name="content" value="/WEB-INF/tiles/content.jsp" />
+    <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
+  </definition>
+  
+  <definition name="home" extends="base">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="content" value="/WEB-INF/tiles/home.jsp" />
+  </definition>
+  
+   <definition name="orderForm" extends="base">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="content" value="/WEB-INF/tiles/orderForm.jsp" />
+  </definition>
+  
+   <definition name="login" extends="base">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="content" value="/WEB-INF/tiles/login.jsp" />
+  </definition>
+  
+  <definition name="users" extends="base">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="content" value="/WEB-INF/tiles/users.jsp" />
+  </definition>
+  
+  <definition name="showorders" extends="base">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="content" value="/WEB-INF/tiles/showorders.jsp" />
+  </definition>
+</tiles-definitions>

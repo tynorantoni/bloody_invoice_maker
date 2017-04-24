@@ -33,8 +33,26 @@ public class Controlling {
 
 		return "home";
 	}
+	
+	@RequestMapping("/home")
+	public String showHome2(Model model) {
 
-	@RequestMapping("/orderForm")
+		return "home";
+	}
+	
+	@RequestMapping("/users")
+	public String showUsers(Model model) {
+
+		return "users";
+	}
+	
+	@RequestMapping("/showorders")
+	public String showOrder(Model model) {
+
+		return "showorders";
+	}
+
+	@RequestMapping(value="/orderForm", method=RequestMethod.GET)
 	public String orderForm(Model model) {
 		List<Hospitals> hospital = servicu.getCurrent();
 		model.addAttribute("combinedCommand", new CombinedCommand());
