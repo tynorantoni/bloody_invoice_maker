@@ -16,7 +16,10 @@
 
 	</security:authentication-manager>
 	<security:http use-expressions="true">
-		<security:intercept-url pattern="/users" access="hasRole('ROLE_ADMIN')"	/>
+	
+		<security:intercept-url pattern="/users" access="permitAll"	/>
+		<security:intercept-url pattern="/userlist" access="hasRole('ROLE_ADMIN')"	/>
+		<security:intercept-url pattern="/usercreated" access="hasRole('ROLE_ADMIN')"	/>
 		<security:intercept-url pattern="/orderForm" access="isAuthenticated()"/>
 		<security:intercept-url pattern="/create" access="isAuthenticated()" />
 		<security:intercept-url pattern="/showorders" access="isAuthenticated()" />
