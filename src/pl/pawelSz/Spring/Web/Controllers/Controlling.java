@@ -40,11 +40,6 @@ public class Controlling {
 		return "home";
 	}
 	
-	@RequestMapping("/users")
-	public String showUsers(Model model) {
-
-		return "users";
-	}
 	
 	@RequestMapping("/showorders")
 	public String showOrder(Model model) {

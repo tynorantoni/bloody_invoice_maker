@@ -28,7 +28,7 @@ private NamedParameterJdbcTemplate jdbc;
 	}
 
 	@Transactional
-	public boolean create(Users users) {
+	public boolean createUser(Users users) {
 		
 		MapSqlParameterSource params = new MapSqlParameterSource();
 		
@@ -46,7 +46,7 @@ private NamedParameterJdbcTemplate jdbc;
 				new MapSqlParameterSource("username", username), Integer.class) > 0;
 	}
 
-	public List<Users> getAllUsers() {
+	public List<Users> getUsers() {
 		return jdbc.query("select * from users,  authorities where users.username=authorities.username", BeanPropertyRowMapper.newInstance(Users.class));
 	}
 	

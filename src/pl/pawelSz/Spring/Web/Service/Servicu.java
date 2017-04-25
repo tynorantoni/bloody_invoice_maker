@@ -9,6 +9,8 @@ import pl.pawelSz.Spring.Web.DAO.Hospitals;
 import pl.pawelSz.Spring.Web.DAO.OffersDAO;
 import pl.pawelSz.Spring.Web.DAO.Orders;
 import pl.pawelSz.Spring.Web.DAO.OrdersPatient;
+import pl.pawelSz.Spring.Web.DAO.UserDAO;
+import pl.pawelSz.Spring.Web.DAO.Users;
 
 @Service("servicu")
 public class Servicu {
@@ -16,6 +18,8 @@ public class Servicu {
 	
 		@Autowired
 		private OffersDAO offersDAO;
+		@Autowired
+		private UserDAO userDAO;
 		
 		@Autowired
 		public void setOffersDAO(OffersDAO offersDAO) {
@@ -37,7 +41,15 @@ public class Servicu {
 			
 		}
 		
+		public void create(Users users) {
+			userDAO.createUser(users);
+			
+		}
 		
+		public List <Users> getUser() {
+			return userDAO.getUsers();
+			
+		}
 	
 	
 }

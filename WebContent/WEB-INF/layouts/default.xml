@@ -35,4 +35,15 @@
     <put-attribute name="title" value="Tiles tutorial homepage" />
     <put-attribute name="content" value="/WEB-INF/tiles/showorders.jsp" />
   </definition>
+  
+  <definition name="userlist" extends="base">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="content" value="/WEB-INF/tiles/userlist.jsp" />
+    </definition>
+    
+    <definition name="usercreated" extends="base">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="content" value="/WEB-INF/tiles/usercreated.jsp" />
+  
+  </definition>
 </tiles-definitions>
