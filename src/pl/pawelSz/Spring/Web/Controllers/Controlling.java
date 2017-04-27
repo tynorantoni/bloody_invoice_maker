@@ -44,7 +44,7 @@ public class Controlling {
 		List<Hospitals> hospital = servicu.getCurrent();
 		model.addAttribute("nameHosp", hospital);
 		
-		return "invoice";
+		return "invoice.pdf";
 	}
 	
 	

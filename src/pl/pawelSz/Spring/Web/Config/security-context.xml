@@ -24,7 +24,8 @@
 		<security:intercept-url pattern="/invoice" access="permitAll"	/>
 		<security:intercept-url pattern="/users" access="permitAll"	/>
 		<security:intercept-url pattern="/userlist" access="permitAll"	/>
-		<security:intercept-url pattern="/usercreated" access="permitAll"	/>
+		<security:intercept-url pattern="/usercreate" access="permitAll"/>
+		<security:intercept-url pattern="/usercreated" access="permitAll"/>
 		<security:intercept-url pattern="/orderForm" access="permitAll"/>
 		<security:intercept-url pattern="/create" access="permitAll" />
 		<security:intercept-url pattern="/showorders" access="permitAll" />
