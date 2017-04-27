@@ -12,45 +12,59 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-
 @Component("userDAO")
 public class UserDAO {
 
-	
-private NamedParameterJdbcTemplate jdbc;
-	
+	private NamedParameterJdbcTemplate jdbc;
+
 	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
+	private PasswordEncoder PasswordEncoder;
+
+	@Autowired
+	public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+		PasswordEncoder = passwordEncoder;
+	}
+
 	@Autowired
 	public void setDataSource(DataSource jdbc) {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
 
-	@Transactional
+	
 	public boolean createUser(Users users) {
-		
+
 		MapSqlParameterSource params = new MapSqlParameterSource();
-		
+
 		params.addValue("username", users.getUsername());
-		params.addValue("password", passwordEncoder.encode(users.getPassword()));
+		params.addValue("password", PasswordEncoder.encode(users.getPassword()));
 		params.addValue("enabled", users.isEnabled());
+
+		return jdbc.update("insert into users (username, password,enabled) values (:username, :password,:enabled)",
+				params) == 1;
+
+	}
+	
+	public boolean createAuth(Users users) {
+
+		MapSqlParameterSource params = new MapSqlParameterSource();
+
+		params.addValue("username", users.getUsername());
+
 		params.addValue("authority", users.getAuthority());
-		
-		jdbc.update("insert into users (username, password,enabled) values (:username, :password, :enabled)", params);
-		
+
 		return jdbc.update("insert into authorities (username, authority) values (:username, :authority)", params) == 1;
 	}
+
+	
+	
 	public boolean exists(String username) {
-		return jdbc.queryForObject("select count(*) from users where username=:username", 
+		return jdbc.queryForObject("select count(*) from users where username=:username",
 				new MapSqlParameterSource("username", username), Integer.class) > 0;
 	}
 
 	public List<Users> getUsers() {
-		return jdbc.query("select * from users,  authorities where users.username=authorities.username", BeanPropertyRowMapper.newInstance(Users.class));
+		return jdbc.query("select * from users,  authorities where users.username=authorities.username",
+				BeanPropertyRowMapper.newInstance(Users.class));
 	}
-	
-	
-	
-	
+
 }

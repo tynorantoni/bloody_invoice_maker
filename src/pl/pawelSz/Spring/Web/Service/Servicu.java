@@ -26,10 +26,17 @@ public class Servicu {
 			this.offersDAO = offersDAO;
 		}
 		
+		@Autowired
+		public void setUserDAO(UserDAO userDAO) {
+			this.userDAO = userDAO;
+		}
+		
 		public List<Hospitals> getCurrent(){
 			return offersDAO.getHosps();
 		}
 		
+		
+
 		public void create(OrdersPatient ordersPatient) {
 			offersDAO.createPatient(ordersPatient);
 			
@@ -43,6 +50,11 @@ public class Servicu {
 		
 		public void create(Users users) {
 			userDAO.createUser(users);
+			
+		}
+		
+		public void createAuth(Users users) {
+			userDAO.createAuth(users);
 			
 		}
 		

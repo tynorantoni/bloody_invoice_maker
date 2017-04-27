@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,6 +26,8 @@ public class UserController {
 	public void setServicu(Servicu servicu) {
 		this.servicu = servicu;
 	}
+	@Autowired
+	PasswordEncoder PasswordEncoder;
 	
 	@RequestMapping("/users")
 	public String newUser(Model model){
@@ -33,17 +36,23 @@ public class UserController {
 		return "users";
 	
 	}
-	@RequestMapping(value="usercreate", method= RequestMethod.POST)
-	public String userCreated(Model model,@ModelAttribute("users")@Valid Users users, BindingResult result){
-		model.addAttribute("users", new Users());
-		if(result.hasErrors()){
-			return "users";
-		}
+	
+	@RequestMapping(value="/usercreate", method= RequestMethod.POST)
+	public String userCreated(@ModelAttribute("users") Users users,Model model){
 		
-		servicu.create(users);
-		users.setAuthority("ROLE_USER");
+		
+//		if(result.hasErrors()){
+//			return "login";
+//		}
+		model.addAttribute("users", users);
+	
 		users.setEnabled(true);
-		return "usercreated";
+		users.setAuthority("ROLE_USER");
+		
+			servicu.create(users);
+			servicu.createAuth(users);
+		
+		return "home";
 	}
 	
 

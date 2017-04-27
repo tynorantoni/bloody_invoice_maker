@@ -39,6 +39,13 @@ public class Controlling {
 
 		return "home";
 	}
+	@RequestMapping(value="/downloadpdf", method=RequestMethod.GET)
+	public String showPDF(@ModelAttribute("nameHosp")@Valid Hospitals hospitals,BindingResult result2, Model model){
+		List<Hospitals> hospital = servicu.getCurrent();
+		model.addAttribute("nameHosp", hospital);
+		
+		return "invoice";
+	}
 	
 	
 	@RequestMapping("/showorders")
@@ -76,6 +83,6 @@ public class Controlling {
 			servicu.create(ordersPatient);
 			servicu.create(orders);
 
-			return "success";
+			return "home";
 		}
 	}

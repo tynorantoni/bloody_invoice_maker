@@ -44,10 +44,11 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
+  	    classpath:pl/pawelSz/Spring/Web/Config/pdf-context.xml
 		classpath:pl/pawelSz/Spring/Web/Config/dao-context.xml
 		classpath:pl/pawelSz/Spring/Web/Config/service-context.xml
 		classpath:pl/pawelSz/Spring/Web/Config/security-context.xml
 		</param-value>
   </context-param>
- 
+ <session-config><session-timeout>20</session-timeout></session-config>
 </web-app>
