@@ -13,6 +13,7 @@
 		<config>src/pl/pawelSz/Spring/Web/Config/security-context.xml</config>
 		<config>java:pl.pawelSz.Spring.Web.DAO.CombinedCommand</config>
 		<config>java:pl.pawelSz.Spring.Web.DAO.OffersDAO</config>
+		<config>src/pl/pawelSz/Spring/Web/Config/pdf-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

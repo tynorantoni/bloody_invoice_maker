@@ -17,6 +17,7 @@
 	<bean id="tilesVewResolver"
 		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
 	</bean>
+	
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 	<property name="definitions">

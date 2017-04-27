@@ -44,6 +44,11 @@
     <definition name="usercreated" extends="base">
     <put-attribute name="title" value="Tiles tutorial homepage" />
     <put-attribute name="content" value="/WEB-INF/tiles/usercreated.jsp" />
+     </definition>
+     
+    <definition name="invoice" extends="base">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="content" value="/WEB-INF/tiles/invoice.pdf" />
   
   </definition>
 </tiles-definitions>
