@@ -16,8 +16,8 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-@Component("offersDAO")
-public class OffersDAO {
+@Component("orderDAO")
+public class OrderDAO {
 
 	private NamedParameterJdbcTemplate jdbc;
 	
@@ -25,7 +25,7 @@ public class OffersDAO {
 	public void setDataSource(DataSource jdbc) {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
-
+//List of Hospitals from DB
 	public List<Hospitals> getHosps() {
 
 		return jdbc.query("select nameHosp from hospitals", new RowMapper<Hospitals>() {
@@ -40,24 +40,42 @@ public class OffersDAO {
 
 		});
 	}
-	
+//Query for orderForm	
 	public boolean createPatient(OrdersPatient ordersPatient){
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(ordersPatient);
 		
 		return jdbc.update("insert into patient (nameHosp,namePat,surnamePat,peselPat) values (:nameHosp,:namePat,:surnamePat,:peselPat)", param)==1;
 	}
 	
+//Query for orderForm	
 	public boolean createOrder(Orders orders){
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(orders);
 		
 		return jdbc.update("insert into orders (KKCZqty,KKCZED5,KKCZEC2,KKPqty,KKPED5,KKPEC2,KKPafqty,KKPafED5,KKPafEC2,FFPqty,FFPEK6,FFPEGB) values (:KKCZqty,:KKCZED5,:KKCZEC2,:KKPqty,:KKPED5,:KKPEC2,:KKPafqty,:KKPafED5,:KKPafEC2,:FFPqty,:FFPEK6,:FFPEGB)", param)==1;
 	}
 	
+//SQL Query calculating net price of order	
+	public List<Orders> getNetPrice() {
+
+		return jdbc.query("select (KKCZEC2+KKCZED5)*KKCZqty+(KKPED5+KKPEC2)*KKPqty+(KKPafED5+KKPafEC2)*KKPafqty+(FFPEGB+FFPEK6)*FFPqty as NetPrice from orders", new RowMapper<Orders>() {
+
+			public Orders mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Orders orders = new Orders();
+				
+				orders.setNetPrice(rs.getInt("NetPrice"));
+
+				return orders;
+			}
+
+		});
+	}
 	
 	
 	
 	
-	
+}
+
+//TODO clean this.
 //	public boolean update(Offer offer) {
 //		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(offer);
 //		
@@ -84,7 +102,7 @@ public class OffersDAO {
 //		
 //		return jdbc.update("delete from offers where id=:id", params) == 1;
 //	}
-//
+
 //	public Offer getOffer(int id) {
 //
 //		MapSqlParameterSource params = new MapSqlParameterSource();
@@ -106,6 +124,6 @@ public class OffersDAO {
 //					}
 //
 //				});
-	}
+//	}
 	
 

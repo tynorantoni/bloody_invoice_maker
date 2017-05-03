@@ -48,7 +48,11 @@
      
     <definition name="invoice" extends="base">
     <put-attribute name="title" value="Tiles tutorial homepage" />
-    <put-attribute name="content" value="/WEB-INF/tiles/invoice.pdf" />
-  
+    <put-attribute name="content" value="/WEB-INF/tiles/invoice.jsp" />
+    </definition>
+     <definition name="netprice" extends="base">
+    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="content" value="/WEB-INF/tiles/netprice.jsp" />
   </definition>
+  
 </tiles-definitions>

@@ -21,3 +21,6 @@
 <sec:authorize access="!isAuthenticated()">
 <a class="title" href="<c:url value='/showorders'/>">Przeglądaj zamówienia</a>
 </sec:authorize>
+<sec:authorize access="!isAuthenticated()">
+<a class="title" href="<c:url value='/price'/>">Cena ostatniego</a>
+</sec:authorize>

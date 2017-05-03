@@ -30,16 +30,20 @@ public class Orders {
 	@NotNull
 	private int FFPEGB;
 	
+	private int netPrice;
+	
 	
 	
 	public Orders() {
 		
 	}
 
-
+public Orders(int NetPrice) {
+		this.netPrice = NetPrice; 
+	}
 
 	public Orders(int idOrder, int kKCZqty, int kKCZED5, int kKCZEC2, int kKPqty, int kKPED5, int kKPEC2, int kKPafqty,
-			int kKPafED5, int kKPafEC2, int fFPqty, int fFPEK6, int fFPEGB) {
+			int kKPafED5, int kKPafEC2, int fFPqty, int fFPEK6, int fFPEGB, int NetPrice) {
 		super();
 		IdOrder = idOrder;
 		KKCZqty = kKCZqty;
@@ -54,6 +58,7 @@ public class Orders {
 		FFPqty = fFPqty;
 		FFPEK6 = fFPEK6;
 		FFPEGB = fFPEGB;
+		this.netPrice = NetPrice;
 	}
 
 
@@ -214,12 +219,20 @@ public class Orders {
 
 
 
+	public int getNetPrice() {
+		return netPrice;
+	}
+
+	public void setNetPrice(int NetPrice) {
+		this.netPrice = NetPrice;
+	}
+
 	@Override
 	public String toString() {
 		return "Orders [IdOrder=" + IdOrder + ", KKCZqty=" + KKCZqty + ", KKCZED5=" + KKCZED5 + ", KKCZEC2=" + KKCZEC2
 				+ ", KKPqty=" + KKPqty + ", KKPED5=" + KKPED5 + ", KKPEC2=" + KKPEC2 + ", KKPafqty=" + KKPafqty
 				+ ", KKPafED5=" + KKPafED5 + ", KKPafEC2=" + KKPafEC2 + ", FFPqty=" + FFPqty + ", FFPEK6=" + FFPEK6
-				+ ", FFPEGB=" + FFPEGB + "]";
+				+ ", FFPEGB=" + FFPEGB + ", NetPrice=" + netPrice + "]";
 	}
 
 	

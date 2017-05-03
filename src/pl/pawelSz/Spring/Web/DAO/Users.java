@@ -41,6 +41,11 @@ public String getAuthority() {
 public void setAuthority(String authority) {
 	this.authority = authority;
 }
+@Override
+public String toString() {
+	return "Users [username=" + username + ", password=" + password + ", enabled=" + enabled + ", authority="
+			+ authority + "]";
+}
 	
 
 

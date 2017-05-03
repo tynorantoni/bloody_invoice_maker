@@ -5,5 +5,8 @@
 
 
 <c:forEach var="username" items="${users}" >
-	<c:out value="${username}"></c:out>
+	<c:out value="${username.username}"></c:out>
+	<c:out value="${username.enabled}"></c:out>
+	<c:out value="${username.authority}"></c:out>
+	<br>
 </c:forEach> <br />

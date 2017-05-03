@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pl.pawelSz.Spring.Web.DAO.Hospitals;
-import pl.pawelSz.Spring.Web.DAO.OffersDAO;
+import pl.pawelSz.Spring.Web.DAO.OrderDAO;
 import pl.pawelSz.Spring.Web.DAO.Orders;
 import pl.pawelSz.Spring.Web.DAO.OrdersPatient;
 import pl.pawelSz.Spring.Web.DAO.UserDAO;
@@ -17,13 +17,13 @@ public class Servicu {
 
 	
 		@Autowired
-		private OffersDAO offersDAO;
+		private OrderDAO orderDAO;
 		@Autowired
 		private UserDAO userDAO;
 		
 		@Autowired
-		public void setOffersDAO(OffersDAO offersDAO) {
-			this.offersDAO = offersDAO;
+		public void setOrderDAO(OrderDAO orderDAO) {
+			this.orderDAO = orderDAO;
 		}
 		
 		@Autowired
@@ -32,20 +32,25 @@ public class Servicu {
 		}
 		
 		public List<Hospitals> getCurrent(){
-			return offersDAO.getHosps();
+			return orderDAO.getHosps();
 		}
 		
 		
 
 		public void create(OrdersPatient ordersPatient) {
-			offersDAO.createPatient(ordersPatient);
+			orderDAO.createPatient(ordersPatient);
 			
 			
 		}
 		
 		public void create(Orders orders) {
-			offersDAO.createOrder(orders);
+			orderDAO.createOrder(orders);
 			
+		}
+		
+		public List <Orders> getPrice(){
+			
+			return orderDAO.getNetPrice();
 		}
 		
 		public void create(Users users) {
@@ -53,11 +58,8 @@ public class Servicu {
 			
 		}
 		
-		public void createAuth(Users users) {
-			userDAO.createAuth(users);
-			
-		}
 		
+			
 		public List <Users> getUser() {
 			return userDAO.getUsers();
 			
