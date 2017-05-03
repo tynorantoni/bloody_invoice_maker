@@ -29,6 +29,7 @@ public class UserController {
 	@Autowired
 	PasswordEncoder PasswordEncoder;
 	
+//Adding new user - Only for ROLE_ADMIN	
 	@RequestMapping("/users")
 	public String newUser(Model model){
 		model.addAttribute("users", new Users());
@@ -36,7 +37,7 @@ public class UserController {
 		return "users";
 	
 	}
-	
+// Inserting values into MySQL	
 	@RequestMapping(value="/usercreate", method= RequestMethod.POST)
 	public String userCreated(@ModelAttribute("users") Users users,Model model){
 		
@@ -50,12 +51,11 @@ public class UserController {
 		users.setAuthority("ROLE_USER");
 		
 			servicu.create(users);
-			servicu.createAuth(users);
-		
+			
 		return "home";
 	}
 	
-
+//List of all users - Only for ROLE_ADMIN
 	@RequestMapping("/userlist")
 	public String showAdmin(Model model) {
 		

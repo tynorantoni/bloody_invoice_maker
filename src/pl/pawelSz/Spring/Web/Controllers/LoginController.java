@@ -2,7 +2,9 @@ package pl.pawelSz.Spring.Web.Controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+/*
+ * Login Form Controller 
+ */
 @Controller
 public class LoginController {
 	
@@ -10,8 +12,10 @@ public class LoginController {
 	public String showLogin(){
 		return "login";
 	}
-	@RequestMapping("/loggedout")
+	@RequestMapping("/logout")
 	public String showLoggedOut(){
 		return "home";
+//TODO logout is not working!
 	}
 }
+

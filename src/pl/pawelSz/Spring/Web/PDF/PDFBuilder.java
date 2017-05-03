@@ -10,6 +10,8 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Component;
+
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Font;
@@ -21,30 +23,34 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import pl.pawelSz.Spring.Web.DAO.Hospitals;
-
+import pl.pawelSz.Spring.Web.Service.Servicu;
+@Component
 public class PDFBuilder extends ITextPDF {
 
+	private Servicu servicu;
+
+	
 	private NamedParameterJdbcTemplate jdbc;
 
 	@Autowired
 	public void setDataSource(DataSource jdbc) {
 		this.jdbc = new NamedParameterJdbcTemplate(jdbc);
 	}
-
-	public List<Hospitals> getHosps() {
-
-		return jdbc.query("select nameHosp from hospitals", new RowMapper<Hospitals>() {
-
-			public Hospitals mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Hospitals hospital = new Hospitals("nameHosp");
-
-				hospital.setNameHosp(rs.getString("nameHosp"));
-
-				return hospital;
-			}
-
-		});
-	}
+//
+//	public List<Hospitals> getHosps() {
+//
+//		return jdbc.query("select nameHosp from hospitals", new RowMapper<Hospitals>() {
+//
+//			public Hospitals mapRow(ResultSet rs, int rowNum) throws SQLException {
+//				Hospitals hospital = new Hospitals("nameHosp");
+//
+//				hospital.setNameHosp(rs.getString("nameHosp"));
+//
+//				return hospital;
+//			}
+//
+//		});
+//	}
 
 	@Override
 	protected void buildPdfDocument(Map<String, Object> model, Document doc, PdfWriter writer,
@@ -71,11 +77,12 @@ public class PDFBuilder extends ITextPDF {
 		table.addCell(cell);
 
 		// write table row data
-		for (Hospitals aHosp : getHosps()) {
-			table.addCell(aHosp.getNameHosp());
-
-		}
-
+//		for (Hospitals aHosp : servicu.getCurrent()) {
+//			
+//			table.addCell(aHosp.getNameHosp());
+//
+//		}
+		
 		doc.add(table);
 
 	}

@@ -34,26 +34,23 @@ public class Controlling {
 		return "home";
 	}
 	
-	@RequestMapping("/home")
-	public String showHome2(Model model) {
-
-		return "home";
-	}
+//PDF Builder
 	@RequestMapping(value="/downloadpdf", method=RequestMethod.GET)
 	public String showPDF(@ModelAttribute("nameHosp")@Valid Hospitals hospitals,BindingResult result2, Model model){
 		List<Hospitals> hospital = servicu.getCurrent();
 		model.addAttribute("nameHosp", hospital);
 		
-		return "invoice.pdf";
+		return "invoice";
 	}
 	
-	
+//List of orders	
 	@RequestMapping("/showorders")
 	public String showOrder(Model model) {
 
 		return "showorders";
 	}
 
+//Order Form	
 	@RequestMapping(value="/orderForm", method=RequestMethod.GET)
 	public String orderForm(Model model) {
 		List<Hospitals> hospital = servicu.getCurrent();
@@ -64,6 +61,7 @@ public class Controlling {
 		return "orderForm";
 	}
 
+//Inserting values from form to MySQL	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String create(@ModelAttribute("nameHosp")@Valid Hospitals hospitals,BindingResult result2,
 			@ModelAttribute("ordersPatient")@Valid OrdersPatient ordersPatient,BindingResult result1,
@@ -77,12 +75,17 @@ public class Controlling {
 			return "/orderForm";
 		} 
 
-//			model.addAttribute("nameHosp", hospitals);
-//			model.addAttribute("orders", new Orders());
-//			model.addAttribute("ordersPatient", new OrdersPatient());
 			servicu.create(ordersPatient);
 			servicu.create(orders);
 
 			return "home";
 		}
+	
+// Temporary	
+	@RequestMapping("/price")
+	public String showPrice(Model model) {
+		List<Orders> orders = servicu.getPrice(); 
+		model.addAttribute("netPrice", orders);
+		return "netprice";
 	}
+}

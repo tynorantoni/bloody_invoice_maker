@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Hospitals {
 
 	private int idHosp;
-	@Autowired // czy to potrzebne...
+	@Autowired // czy to potrzebne... //TODO check this with orderForm
 	private String nameHosp;
 	private String addressHosp;
 	

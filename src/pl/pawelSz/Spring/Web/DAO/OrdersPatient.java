@@ -10,7 +10,7 @@ public class OrdersPatient {
 
 	private int idOrder;
 	
-	@Autowired   // czy to potrzebne?
+	@Autowired   // czy to potrzebne? //TODO check 
 	private String nameHosp;
 	@NotNull(message="Wpisz Imiê!")
 	@Size(min=1, message="dupa")
