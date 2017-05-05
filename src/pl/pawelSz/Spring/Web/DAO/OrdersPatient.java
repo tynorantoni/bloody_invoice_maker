@@ -21,7 +21,7 @@ public class OrdersPatient {
 	@Pattern(regexp="\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d") 
 	
 	private String peselPat;
-	
+	private String addressHosp;
 	
 	public OrdersPatient() {
 		
@@ -44,7 +44,7 @@ public class OrdersPatient {
 
 
 	public void setIdOrder(int idOrder) {
-		this.idOrder = idOrder;
+		this.idOrder =idOrder;
 	}
 
 
@@ -88,11 +88,24 @@ public class OrdersPatient {
 	}
 
 
+	public String getAddressHosp() {
+		return addressHosp;
+	}
+
+
+	public void setAddressHosp(String addressHosp) {
+		this.addressHosp = addressHosp;
+	}
+
+
 	@Override
 	public String toString() {
 		return "OrdersPatient [idOrder=" + idOrder + ", nameHosp=" + nameHosp + ", namePat=" + namePat + ", surnamePat="
-				+ surnamePat + ", peselPat=" + peselPat + "]";
+				+ surnamePat + ", peselPat=" + peselPat + ", addressHosp=" + addressHosp + "]";
 	}
+
+
+	
 	
 	
 	

@@ -65,5 +65,14 @@ public class Servicu {
 			
 		}
 	
+		public List <Orders> getOrder() {
+			return orderDAO.getOrders();
+			
+		}
+		public List <OrdersPatient> getPatient() {
+			return orderDAO.getPatients();
+			
+		}
 	
+		
 }
