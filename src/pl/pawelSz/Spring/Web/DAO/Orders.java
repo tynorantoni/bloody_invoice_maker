@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 
 public class Orders {
 
-	private int IdOrder;
+	private int idOrder;
 	@NotNull(message="Notnull")
 	private int KKCZqty;
 	@NotNull
@@ -44,8 +44,8 @@ public Orders(int NetPrice) {
 
 	public Orders(int idOrder, int kKCZqty, int kKCZED5, int kKCZEC2, int kKPqty, int kKPED5, int kKPEC2, int kKPafqty,
 			int kKPafED5, int kKPafEC2, int fFPqty, int fFPEK6, int fFPEGB, int NetPrice) {
-		super();
-		IdOrder = idOrder;
+		
+		idOrder = idOrder;
 		KKCZqty = kKCZqty;
 		KKCZED5 = kKCZED5;
 		KKCZEC2 = kKCZEC2;
@@ -64,13 +64,13 @@ public Orders(int NetPrice) {
 
 
 	public int getIdOrder() {
-		return IdOrder;
+		return idOrder;
 	}
 
 
 
 	public void setIdOrder(int idOrder) {
-		IdOrder = idOrder;
+		idOrder = idOrder;
 	}
 
 
@@ -229,7 +229,7 @@ public Orders(int NetPrice) {
 
 	@Override
 	public String toString() {
-		return "Orders [IdOrder=" + IdOrder + ", KKCZqty=" + KKCZqty + ", KKCZED5=" + KKCZED5 + ", KKCZEC2=" + KKCZEC2
+		return "Orders [IdOrder=" + idOrder + ", KKCZqty=" + KKCZqty + ", KKCZED5=" + KKCZED5 + ", KKCZEC2=" + KKCZEC2
 				+ ", KKPqty=" + KKPqty + ", KKPED5=" + KKPED5 + ", KKPEC2=" + KKPEC2 + ", KKPafqty=" + KKPafqty
 				+ ", KKPafED5=" + KKPafED5 + ", KKPafEC2=" + KKPafEC2 + ", FFPqty=" + FFPqty + ", FFPEK6=" + FFPEK6
 				+ ", FFPEGB=" + FFPEGB + ", NetPrice=" + netPrice + "]";

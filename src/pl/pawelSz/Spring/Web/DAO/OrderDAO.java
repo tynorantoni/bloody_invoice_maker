@@ -28,13 +28,13 @@ public class OrderDAO {
 //List of Hospitals from DB
 	public List<Hospitals> getHosps() {
 
-		return jdbc.query("select nameHosp from hospitals", new RowMapper<Hospitals>() {
+		return jdbc.query("select nameHosp, from hospitals", new RowMapper<Hospitals>() {
 
 			public Hospitals mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Hospitals hospital = new Hospitals("nameHosp");
 				
 				hospital.setNameHosp(rs.getString("nameHosp"));
-
+				
 				return hospital;
 			}
 
@@ -57,13 +57,55 @@ public class OrderDAO {
 //SQL Query calculating net price of order	
 	public List<Orders> getNetPrice() {
 
-		return jdbc.query("select (KKCZEC2+KKCZED5)*KKCZqty+(KKPED5+KKPEC2)*KKPqty+(KKPafED5+KKPafEC2)*KKPafqty+(FFPEGB+FFPEK6)*FFPqty as NetPrice from orders", new RowMapper<Orders>() {
+		return jdbc.query("select (KKCZEC2+KKCZED5+180)*KKCZqty+(KKPED5+KKPEC2+670)*KKPqty+(KKPafED5+KKPafEC2+1111)*KKPafqty+(FFPEGB+FFPEK6+112)*FFPqty as NetPrice from orders order by idOrder DESC limit 1", new RowMapper<Orders>() {
 
 			public Orders mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Orders orders = new Orders();
 				
 				orders.setNetPrice(rs.getInt("NetPrice"));
 
+				return orders;
+			}
+
+		});
+	}
+	
+	
+	
+	// That Query shows last order
+	public List<OrdersPatient> getPatients() {
+
+		return jdbc.query("select idOrder, patient.nameHosp, namePat, surnamePat, peselPat, hospitals.addressHosp from patient  INNER JOIN hospitals ON patient.nameHosp = hospitals.nameHosp Order by patient.idOrder DESC Limit 1", new RowMapper<OrdersPatient>() {
+
+			public OrdersPatient mapRow(ResultSet rs, int rowNum) throws SQLException {
+			
+				OrdersPatient ordersPatient = new OrdersPatient();
+				
+				
+				ordersPatient.setAddressHosp(rs.getString("addressHosp"));
+				ordersPatient.setIdOrder(rs.getInt("idOrder"));
+				ordersPatient.setNameHosp(rs.getString("nameHosp"));
+				ordersPatient.setNamePat(rs.getString("namePat"));
+				ordersPatient.setSurnamePat(rs.getString("surnamePat"));
+				ordersPatient.setPeselPat(rs.getString("peselPat"));
+				
+				return ordersPatient;
+			}
+
+		});
+	}
+	// That Query shows last order
+	public List<Orders> getOrders() {
+
+		return jdbc.query("select * from orders order by idOrder DESC limit 1", new RowMapper<Orders>() {
+
+			public Orders mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Orders orders = new Orders();
+				orders.setIdOrder(rs.getInt("idOrder"));
+				orders.setKKCZqty(rs.getInt("KKCZqty"));
+				orders.setFFPqty(rs.getInt("FFPqty"));
+				orders.setKKPqty(rs.getInt("KKPqty"));
+				orders.setKKPafqty(rs.getInt("KKPafqty"));
 				return orders;
 			}
 

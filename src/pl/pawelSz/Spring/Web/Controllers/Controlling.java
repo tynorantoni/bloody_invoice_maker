@@ -78,14 +78,31 @@ public class Controlling {
 			servicu.create(ordersPatient);
 			servicu.create(orders);
 
-			return "home";
+			return "redirect:/show";
 		}
 	
 // Temporary	
 	@RequestMapping("/price")
 	public String showPrice(Model model) {
 		List<Orders> orders = servicu.getPrice(); 
+		model.addAttribute("order", orders);
 		model.addAttribute("netPrice", orders);
 		return "netprice";
+	}
+	
+	@RequestMapping("/show")
+	public String showPatientOrder(Model model) {
+		List<Orders> orders = servicu.getPrice(); 
+		List<Orders> ordersShow = servicu.getOrder(); 
+		List<OrdersPatient> patient = servicu.getPatient(); 
+		
+		model.addAttribute("idOrder", patient);
+		model.addAttribute("addressHosp", patient);
+		model.addAttribute("order", orders);
+		model.addAttribute("netPrice", orders);
+		model.addAttribute("KKCZqty", ordersShow);
+		model.addAttribute("ordersShow", ordersShow);
+		model.addAttribute("patient", patient);
+		return "showorders";
 	}
 }

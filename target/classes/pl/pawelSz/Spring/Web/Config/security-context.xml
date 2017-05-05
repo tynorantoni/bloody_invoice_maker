@@ -19,26 +19,27 @@
 
 	</security:authentication-manager>
 	<security:http use-expressions="true">
-	<security:intercept-url pattern="/netprice" access="permitAll"	/>
-	<security:intercept-url pattern="/price" access="permitAll"	/>
-	<security:intercept-url pattern="/invoice" access="permitAll"	/>
-	<security:intercept-url pattern="/invoice.pdf" access="permitAll"	/>
-	<security:intercept-url pattern="/downloadpdf" access="permitAll"	/>
-		<security:intercept-url pattern="/invoice2" access="permitAll"	/>
-		<security:intercept-url pattern="/users" access="permitAll"	/>
-		<security:intercept-url pattern="/userlist" access="permitAll"	/>
-		<security:intercept-url pattern="/usercreate" access="permitAll"/>
-		<security:intercept-url pattern="/usercreated" access="permitAll"/>
-		<security:intercept-url pattern="/orderForm" access="permitAll"/>
-		<security:intercept-url pattern="/create" access="permitAll" />
-		<security:intercept-url pattern="/showorders" access="permitAll" />
-		<security:intercept-url pattern="/success" access="permitAll" />
+	<security:intercept-url pattern="/show" access="isAuthenticated()"	/>
+	<security:intercept-url pattern="/netprice" access="hasRole('ROLE_ADMIN')"	/>
+	<security:intercept-url pattern="/price" access="hasRole('ROLE_ADMIN')"	/>
+	<security:intercept-url pattern="/invoice" access="isAuthenticated()"	/>
+	<security:intercept-url pattern="/invoice.pdf" access="isAuthenticated()"	/>
+	<security:intercept-url pattern="/downloadpdf" access="isAuthenticated()"	/>
+		<security:intercept-url pattern="/invoice2" access="isAuthenticated()"	/>
+		<security:intercept-url pattern="/users" access="hasRole('ROLE_ADMIN')"	/>
+		<security:intercept-url pattern="/userlist" access="hasRole('ROLE_ADMIN')"	/>
+		<security:intercept-url pattern="/usercreate" access="hasRole('ROLE_ADMIN')"/>
+		<security:intercept-url pattern="/usercreated" access="hasRole('ROLE_ADMIN')"/>
+		<security:intercept-url pattern="/orderForm" access="isAuthenticated()"/>
+		<security:intercept-url pattern="/create" access="isAuthenticated()" />
+		<security:intercept-url pattern="/showorders" access="isAuthenticated()" />
+		<security:intercept-url pattern="/success" access="isAuthenticated()" />
 		<security:intercept-url pattern="/login" access="permitAll" />
 		<security:intercept-url pattern="/logout" access="permitAll" />
 		<security:intercept-url pattern="/home" access="permitAll" />
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/static/**" access="permitAll" />
-		<security:intercept-url pattern="/**" access="permitAll" />
+		<security:intercept-url pattern="/**" access="denyAll" />
 		
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login?error=true" />
