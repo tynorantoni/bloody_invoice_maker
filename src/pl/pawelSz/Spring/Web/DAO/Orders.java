@@ -1,35 +1,24 @@
 package pl.pawelSz.Spring.Web.DAO;
 
-import javax.validation.constraints.NotNull;
-
 public class Orders {
 
 	private int idOrder;
-	@NotNull(message="Notnull")
-	private int KKCZqty;
-	@NotNull
-	private int KKCZED5;
-	@NotNull
-	private int KKCZEC2;
-	@NotNull
-	private int KKPqty;
-	@NotNull
-	private int KKPED5;
-	@NotNull
-	private int KKPEC2;
-	@NotNull
-	private int KKPafqty;
-	@NotNull
-	private int KKPafED5;
-	@NotNull
-	private int KKPafEC2;
-	@NotNull
-	private int FFPqty;
-	@NotNull
-	private int FFPEK6;
-	@NotNull
-	private int FFPEGB;
 	
+	private int KKCZqty;
+	private int KKCZED5;
+	private int KKCZEC2;
+	
+	private int KKPqty;
+	private int KKPED5;
+	private int KKPEC2;
+	
+	private int KKPafqty;
+	private int KKPafED5;
+	private int KKPafEC2;
+	
+	private int FFPqty;
+	private int FFPEK6;
+	private int FFPEGB;
 	private int netPrice;
 	
 	
@@ -45,7 +34,7 @@ public Orders(int NetPrice) {
 	public Orders(int idOrder, int kKCZqty, int kKCZED5, int kKCZEC2, int kKPqty, int kKPED5, int kKPEC2, int kKPafqty,
 			int kKPafED5, int kKPafEC2, int fFPqty, int fFPEK6, int fFPEGB, int NetPrice) {
 		
-		idOrder = idOrder;
+		this.idOrder = idOrder;
 		KKCZqty = kKCZqty;
 		KKCZED5 = kKCZED5;
 		KKCZEC2 = kKCZEC2;
@@ -70,7 +59,7 @@ public Orders(int NetPrice) {
 
 
 	public void setIdOrder(int idOrder) {
-		idOrder = idOrder;
+		this.idOrder = idOrder;
 	}
 
 

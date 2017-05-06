@@ -15,7 +15,7 @@ Dodaj użytkownika
 	<table class="formtable">
 		<tr>
 			<td class="label">Username:</td>
-			<td><sf:input class="control" path="${username}" name="username"
+			<td><sf:input id="username" class="control" path="${username}" name="username"
 					type="text" /><br />
 				<div class="error">
 					<sf:errors path="username"></sf:errors>

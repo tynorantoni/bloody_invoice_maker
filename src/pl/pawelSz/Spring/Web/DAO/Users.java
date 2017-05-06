@@ -1,8 +1,14 @@
 package pl.pawelSz.Spring.Web.DAO;
 
-public class Users {
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
+public class Users {
+@NotNull
+@Size(min=1, message="Wpisz nazwê u¿ytkownika!")
 private String username;
+@NotNull
+@Size(min=6,message="Has³o musi mieæ przynajmniej 6 znaków")
 private String password;
 private boolean enabled=false;
 private String authority;

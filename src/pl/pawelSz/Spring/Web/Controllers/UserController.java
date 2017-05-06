@@ -39,12 +39,13 @@ public class UserController {
 	}
 // Inserting values into MySQL	
 	@RequestMapping(value="/usercreate", method= RequestMethod.POST)
-	public String userCreated(@ModelAttribute("users") Users users,Model model){
+	public String userCreated(@ModelAttribute("users") @Valid Users users,BindingResult result,Model model){
 		
 		
-//		if(result.hasErrors()){
-//			return "login";
-//		}
+		if(result.hasErrors()){
+			return "users";
+		}
+		
 		model.addAttribute("users", users);
 	
 		users.setEnabled(true);
@@ -52,7 +53,7 @@ public class UserController {
 		
 			servicu.create(users);
 			
-		return "home";
+		return "usercreated";
 	}
 	
 //List of all users - Only for ROLE_ADMIN
