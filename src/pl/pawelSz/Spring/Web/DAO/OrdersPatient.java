@@ -10,9 +10,11 @@ public class OrdersPatient {
 	
 	private String addressHosp;
 	private String nameHosp;
-	@NotNull(message="Wpisz Imiê!")
+	@NotNull
+	@Size(min=3,message="Wpisz Imiê!")
 	private String namePat;
-	@NotNull(message="Wpisz Nazwisko!")
+	@NotNull
+	@Size(min=3,message="Wpisz Nazwisko!")
 	private String surnamePat;
 	@Size(min=11, max=11, message="Podaj nr Pesel!")
 	@Pattern(regexp="\\d", message="B³êdny numer!") 

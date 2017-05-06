@@ -14,6 +14,7 @@
 		<config>java:pl.pawelSz.Spring.Web.DAO.CombinedCommand</config>
 		<config>src/pl/pawelSz/Spring/Web/Config/pdf-context.xml</config>
 		<config>java:pl.pawelSz.Spring.Web.DAO.OrderDAO</config>
+		<config>Test/pl/pawelSz/Spring/Web/Config/data.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
