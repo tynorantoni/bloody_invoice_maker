@@ -5,53 +5,53 @@
 
 <tiles-definitions>
   <definition name="base" template="/WEB-INF/layouts/template.jsp">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="title" value="System zamówień składników krwi" />
     <put-attribute name="header" value="/WEB-INF/tiles/header.jsp" />
     <put-attribute name="content" value="/WEB-INF/tiles/content.jsp" />
     <put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp" />
   </definition>
   
   <definition name="home" extends="base">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="title" value="System zamówień składników krwi" />
     <put-attribute name="content" value="/WEB-INF/tiles/home.jsp" />
   </definition>
   
    <definition name="orderForm" extends="base">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="title" value="System zamówień składników krwi - Formularz" />
     <put-attribute name="content" value="/WEB-INF/tiles/orderForm.jsp" />
   </definition>
   
    <definition name="login" extends="base">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="title" value="System zamówień składników krwi - zaloguj się" />
     <put-attribute name="content" value="/WEB-INF/tiles/login.jsp" />
   </definition>
   
   <definition name="users" extends="base">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="title" value="System zamówień składników krwi - dodaj użytkownika" />
     <put-attribute name="content" value="/WEB-INF/tiles/users.jsp" />
   </definition>
   
   <definition name="showorders" extends="base">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="title" value="System zamówień składników krwi - Ostatnie zamówienie" />
     <put-attribute name="content" value="/WEB-INF/tiles/showorders.jsp" />
   </definition>
   
   <definition name="userlist" extends="base">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="title" value="System zamówień składników krwi - użytkownicy" />
     <put-attribute name="content" value="/WEB-INF/tiles/userlist.jsp" />
     </definition>
     
     <definition name="usercreated" extends="base">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="title" value="System zamówień składników krwi - utworzono użytkownika" />
     <put-attribute name="content" value="/WEB-INF/tiles/usercreated.jsp" />
      </definition>
      
     <definition name="invoice" extends="base">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="title" value="System zamówień składników krwi - faktura" />
     <put-attribute name="content" value="/WEB-INF/tiles/invoice.jsp" />
     </definition>
      <definition name="netprice" extends="base">
-    <put-attribute name="title" value="Tiles tutorial homepage" />
+    <put-attribute name="title" value="System zamówień składników krwi - cena ostatniego zamówienia" />
     <put-attribute name="content" value="/WEB-INF/tiles/netprice.jsp" />
   </definition>
   

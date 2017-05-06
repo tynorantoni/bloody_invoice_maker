@@ -27,9 +27,11 @@
 				<th colspan="4">Zamówienie</th>
 			</tr>
 			<tr>
-				<td>Imię:<br /> <sf:input path="${namePat}" name="namePat"
-						type="text" /><br /><sf:errors path="${namePat}" cssClass="error"></sf:errors>
-				<br/><sf:errors path="*" cssClass="error"></sf:errors>
+				<td>Imię:<br /> <sf:input id="${namePat}" path="${namePat}" name="namePat"
+						type="text" /><br />
+						<div class="error">
+						<sf:errors path="${namePat}"></sf:errors></div>
+				<br/>
 				</td>
 				<td>KKCz</td>
 				<td><sf:input path="${KKCZqty}" name="KKCZqty" size="1"
@@ -42,7 +44,8 @@
 			<tr>
 
 				<td>Nazwisko:<br /> <sf:input path="${surnamePat}"
-						name="surnamePat" type="text" />
+						name="surnamePat" type="text" /><br><div class="error">
+						<sf:errors path="${surnamePat}"></sf:errors></div>
 				</td>
 				<td>PLT</td>
 				<td><sf:input path="${KKPqty}" name="KKPqty" size="1"
@@ -54,7 +57,8 @@
 			</tr>
 			<tr>
 				<td>PESEL:<br /> <sf:input path="${peselPat}" name="peselPat"
-						type="text" />
+						type="text" /><br><div class="error">
+						<sf:errors path="${peselPat}"></sf:errors></div>
 				</td>
 				<td>PLT apheresis</td>
 				<td><sf:input path="${KKPafqty}" name="KKPafqty" size="1"

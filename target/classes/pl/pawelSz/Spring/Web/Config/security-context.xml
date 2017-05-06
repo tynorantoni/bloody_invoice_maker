@@ -1,55 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
 
 	<security:authentication-manager>
-		
+
 		<security:authentication-provider>
-			<security:jdbc-user-service data-source-ref="dataSource"
-			authorities-by-username-query='select * from authorities where username = ?'
-				users-by-username-query='select * from users where username = ?'
-				id="jdbcUserService" />
+			<security:jdbc-user-service
+				data-source-ref="dataSource" authorities-by-username-query='select * from authorities where username = ?'
+				users-by-username-query='select * from users where username = ?' id="jdbcUserService" />
 
 			<security:password-encoder ref="PasswordEncoder"></security:password-encoder>
 		</security:authentication-provider>
 
 	</security:authentication-manager>
 	<security:http use-expressions="true">
-	<security:intercept-url pattern="/show" access="isAuthenticated()"	/>
-	<security:intercept-url pattern="/netprice" access="hasRole('ROLE_ADMIN')"	/>
-	<security:intercept-url pattern="/price" access="hasRole('ROLE_ADMIN')"	/>
-	<security:intercept-url pattern="/invoice" access="isAuthenticated()"	/>
-	<security:intercept-url pattern="/downloadpdf" access="isAuthenticated()"	/>
-		<security:intercept-url pattern="/invoice2" access="isAuthenticated()"	/>
-		<security:intercept-url pattern="/users" access="hasRole('ROLE_ADMIN')"	/>
-		<security:intercept-url pattern="/userlist" access="hasRole('ROLE_ADMIN')"	/>
-		<security:intercept-url pattern="/usercreate" access="hasRole('ROLE_ADMIN')"/>
-		<security:intercept-url pattern="/usercreated" access="hasRole('ROLE_ADMIN')"/>
-		<security:intercept-url pattern="/orderForm" access="isAuthenticated()"/>
-		<security:intercept-url pattern="/create" access="isAuthenticated()" />
-		<security:intercept-url pattern="/showorders" access="isAuthenticated()" />
-		<security:intercept-url pattern="/success" access="isAuthenticated()" />
-		<security:intercept-url pattern="/login" access="permitAll" />
-		<security:intercept-url pattern="/logout" access="permitAll" />
+		<security:intercept-url pattern="/show"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/netprice"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/price"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/invoice"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/downloadpdf"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/invoice2"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/users"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/userlist"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/usercreate"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/usercreated"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/orderForm"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/create"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/showorders"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/success"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/login"
+			access="permitAll" />
+		<security:intercept-url pattern="/logout"
+			access="permitAll" />
 		<security:intercept-url pattern="/home" access="permitAll" />
 		<security:intercept-url pattern="/" access="permitAll" />
-		<security:intercept-url pattern="/static/**" access="permitAll" />
+		<security:intercept-url pattern="/static/**"
+			access="permitAll" />
 		<security:intercept-url pattern="/**" access="denyAll" />
-		
+
 		<security:form-login login-page="/login"
 			authentication-failure-url="/login?error=true" />
-		<security:logout logout-success-url="/login"
-			logout-url="/logout" />
+		<security:logout logout-success-url="/" logout-url="/logout" />
 
 
 	</security:http>
 	<bean id="PasswordEncoder"
 		class="org.springframework.security.crypto.password.StandardPasswordEncoder">
 	</bean>
-	<security:global-method-security secured-annotations="enabled">
+	<security:global-method-security
+		secured-annotations="enabled">
 	</security:global-method-security>
 </beans>
