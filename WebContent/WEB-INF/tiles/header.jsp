@@ -9,8 +9,8 @@
 <a class="login" href="<c:url value='/login'/>">Zaloguj</a>
 </sec:authorize>
 
-<sec:authorize access="!isAuthenticated()">
-<a class="login" href="<c:url value='/j_spring_security_logout'/>">Wyloguj</a>
+<sec:authorize access="isAuthenticated()">
+<a class="login" href="<c:url value='/logout'/>">Wyloguj</a>
 </sec:authorize>
 <sec:authorize access="hasRole('ROLE_ADMIN')">
 <a class="title" href="<c:url value='/users'/>">Dodaj Użytkownika</a>

@@ -14,8 +14,8 @@ public class LoginController {
 	}
 	@RequestMapping("/logout")
 	public String showLoggedOut(){
-		return "home";
-//TODO logout is not working!
+		return "login";
+
 	}
 }
 

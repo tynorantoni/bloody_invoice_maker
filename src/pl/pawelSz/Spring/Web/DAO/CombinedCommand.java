@@ -1,18 +1,14 @@
 package pl.pawelSz.Spring.Web.DAO;
 
-import javax.validation.Valid;
-
 import org.springframework.stereotype.Component;
 /*
  * This class join Hospital, OrdersPatient and Orders Beans
  */
 @Component
 public class CombinedCommand {
-	@Valid
+	
 	private OrdersPatient ordersPatient;
-	@Valid
 	private Hospitals hospitals;
-	@Valid
 	private Orders orders;
 	
 	public CombinedCommand() {

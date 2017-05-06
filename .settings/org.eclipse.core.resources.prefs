@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/tiles/footer.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/header.jsp=UTF-8
+encoding//WebContent/WEB-INF/tiles/login.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/netprice.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/orderForm.jsp=UTF-8
 encoding//WebContent/WEB-INF/tiles/showorders.jsp=UTF-8

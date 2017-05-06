@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login Page</title>
+<title>Zaloguj</title>
 </head>
 <body onload='document.f.j_username.focus();'>
 	<h3>Zaloguj sie</h3>
@@ -12,11 +12,11 @@
 		method='POST'>
 		<table>
 			<tr>
-				<td>User:</td>
+				<td>Nazwa Użytkownika:</td>
 				<td><input type='text' name='j_username' value=''></td>
 			</tr>
 			<tr>
-				<td>Password:</td>
+				<td>Hasło:</td>
 				<td><input type='password' name='j_password' /></td>
 			</tr>
 			<tr>

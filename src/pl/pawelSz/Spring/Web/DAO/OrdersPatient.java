@@ -4,24 +4,21 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class OrdersPatient {
 
 	private int idOrder;
 	
-	@Autowired   // czy to potrzebne? //TODO check 
+	private String addressHosp;
 	private String nameHosp;
 	@NotNull(message="Wpisz Imiê!")
-	@Size(min=1, message="dupa")
 	private String namePat;
-	@NotNull
-	
+	@NotNull(message="Wpisz Nazwisko!")
 	private String surnamePat;
-	@Pattern(regexp="\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d") 
-	
+	@Size(min=11, max=11, message="Podaj nr Pesel!")
+	@Pattern(regexp="\\d", message="B³êdny numer!") 
 	private String peselPat;
-	private String addressHosp;
+	
+	
 	
 	public OrdersPatient() {
 		
