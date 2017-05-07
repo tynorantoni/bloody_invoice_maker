@@ -1,20 +1,20 @@
 package pl.pawelSz.Spring.Web.DAO;
 
 import org.springframework.stereotype.Component;
+
 /*
  * This class join Hospital, OrdersPatient and Orders Beans
  */
 @Component
 public class CombinedCommand {
-	
+
 	private OrdersPatient ordersPatient;
 	private Hospitals hospitals;
 	private Orders orders;
-	
+
 	public CombinedCommand() {
 
 	}
-
 
 	public Orders getOrders() {
 		return orders;
@@ -24,7 +24,6 @@ public class CombinedCommand {
 		this.orders = orders;
 	}
 
-	
 	public OrdersPatient getOrdersPatient() {
 		return ordersPatient;
 	}

@@ -7,28 +7,25 @@ import javax.validation.constraints.Size;
 public class OrdersPatient {
 
 	private int idOrder;
-	
+
 	private String addressHosp;
 	private String nameHosp;
 	@NotNull
-	@Size(min=3,message="Wpisz Imiê!")
+	@Size(min = 3, message = "Wpisz Imiê!")
 	private String namePat;
 	@NotNull
-	@Size(min=3,message="Wpisz Nazwisko!")
+	@Size(min = 3, message = "Wpisz Nazwisko!")
 	private String surnamePat;
-	@Size(min=11, max=11, message="Podaj nr Pesel!")
-	@Pattern(regexp="\\d", message="B³êdny numer!") 
+	@Size(min = 11, max = 11, message = "Podaj nr Pesel!")
+	@Pattern(regexp = "\\d", message = "B³êdny numer!")
 	private String peselPat;
-	
-	
-	
+
 	public OrdersPatient() {
-		
+
 	}
 
-
 	public OrdersPatient(int idOrder, String nameHosp, String namePat, String surnamePat, String peselPat) {
-		
+
 		this.idOrder = idOrder;
 		this.nameHosp = nameHosp;
 		this.namePat = namePat;
@@ -36,66 +33,53 @@ public class OrdersPatient {
 		this.peselPat = peselPat;
 	}
 
-
 	public int getIdOrder() {
 		return idOrder;
 	}
 
-
 	public void setIdOrder(int idOrder) {
-		this.idOrder =idOrder;
+		this.idOrder = idOrder;
 	}
-
 
 	public String getNameHosp() {
 		return nameHosp;
 	}
 
-
 	public void setNameHosp(String nameHosp) {
 		this.nameHosp = nameHosp;
 	}
-
 
 	public String getNamePat() {
 		return namePat;
 	}
 
-
 	public void setNamePat(String namePat) {
 		this.namePat = namePat;
 	}
-
 
 	public String getSurnamePat() {
 		return surnamePat;
 	}
 
-
 	public void setSurnamePat(String surnamePat) {
 		this.surnamePat = surnamePat;
 	}
-
 
 	public String getPeselPat() {
 		return peselPat;
 	}
 
-
 	public void setPeselPat(String peselPat) {
 		this.peselPat = peselPat;
 	}
-
 
 	public String getAddressHosp() {
 		return addressHosp;
 	}
 
-
 	public void setAddressHosp(String addressHosp) {
 		this.addressHosp = addressHosp;
 	}
-
 
 	@Override
 	public String toString() {
@@ -103,9 +87,4 @@ public class OrdersPatient {
 				+ surnamePat + ", peselPat=" + peselPat + ", addressHosp=" + addressHosp + "]";
 	}
 
-
-	
-	
-	
-	
 }

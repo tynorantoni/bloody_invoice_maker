@@ -3,37 +3,35 @@ package pl.pawelSz.Spring.Web.DAO;
 public class Orders {
 
 	private int idOrder;
-	
+
 	private int KKCZqty;
 	private int KKCZED5;
 	private int KKCZEC2;
-	
+
 	private int KKPqty;
 	private int KKPED5;
 	private int KKPEC2;
-	
+
 	private int KKPafqty;
 	private int KKPafED5;
 	private int KKPafEC2;
-	
+
 	private int FFPqty;
 	private int FFPEK6;
 	private int FFPEGB;
 	private int netPrice;
-	
-	
-	
+
 	public Orders() {
-		
+
 	}
 
-public Orders(int NetPrice) {
-		this.netPrice = NetPrice; 
+	public Orders(int NetPrice) {
+		this.netPrice = NetPrice;
 	}
 
 	public Orders(int idOrder, int kKCZqty, int kKCZED5, int kKCZEC2, int kKPqty, int kKPED5, int kKPEC2, int kKPafqty,
 			int kKPafED5, int kKPafEC2, int fFPqty, int fFPEK6, int fFPEGB, int NetPrice) {
-		
+
 		this.idOrder = idOrder;
 		KKCZqty = kKCZqty;
 		KKCZED5 = kKCZED5;
@@ -50,163 +48,109 @@ public Orders(int NetPrice) {
 		this.netPrice = NetPrice;
 	}
 
-
-
 	public int getIdOrder() {
 		return idOrder;
 	}
-
-
 
 	public void setIdOrder(int idOrder) {
 		this.idOrder = idOrder;
 	}
 
-
-
 	public int getKKCZqty() {
 		return KKCZqty;
 	}
-
-
 
 	public void setKKCZqty(int kKCZqty) {
 		KKCZqty = kKCZqty;
 	}
 
-
-
 	public int getKKCZED5() {
 		return KKCZED5;
 	}
-
-
 
 	public void setKKCZED5(int kKCZED5) {
 		KKCZED5 = kKCZED5;
 	}
 
-
-
 	public int getKKCZEC2() {
 		return KKCZEC2;
 	}
-
-
 
 	public void setKKCZEC2(int kKCZEC2) {
 		KKCZEC2 = kKCZEC2;
 	}
 
-
-
 	public int getKKPqty() {
 		return KKPqty;
 	}
-
-
 
 	public void setKKPqty(int kKPqty) {
 		KKPqty = kKPqty;
 	}
 
-
-
 	public int getKKPED5() {
 		return KKPED5;
 	}
-
-
 
 	public void setKKPED5(int kKPED5) {
 		KKPED5 = kKPED5;
 	}
 
-
-
 	public int getKKPEC2() {
 		return KKPEC2;
 	}
-
-
 
 	public void setKKPEC2(int kKPEC2) {
 		KKPEC2 = kKPEC2;
 	}
 
-
-
 	public int getKKPafqty() {
 		return KKPafqty;
 	}
-
-
 
 	public void setKKPafqty(int kKPafqty) {
 		KKPafqty = kKPafqty;
 	}
 
-
-
 	public int getKKPafED5() {
 		return KKPafED5;
 	}
-
-
 
 	public void setKKPafED5(int kKPafED5) {
 		KKPafED5 = kKPafED5;
 	}
 
-
-
 	public int getKKPafEC2() {
 		return KKPafEC2;
 	}
-
-
 
 	public void setKKPafEC2(int kKPafEC2) {
 		KKPafEC2 = kKPafEC2;
 	}
 
-
-
 	public int getFFPqty() {
 		return FFPqty;
 	}
-
-
 
 	public void setFFPqty(int fFPqty) {
 		FFPqty = fFPqty;
 	}
 
-
-
 	public int getFFPEK6() {
 		return FFPEK6;
 	}
-
-
 
 	public void setFFPEK6(int fFPEK6) {
 		FFPEK6 = fFPEK6;
 	}
 
-
-
 	public int getFFPEGB() {
 		return FFPEGB;
 	}
 
-
-
 	public void setFFPEGB(int fFPEGB) {
 		FFPEGB = fFPEGB;
 	}
-
-
 
 	public int getNetPrice() {
 		return netPrice;
@@ -224,5 +168,4 @@ public Orders(int NetPrice) {
 				+ ", FFPEGB=" + FFPEGB + ", NetPrice=" + netPrice + "]";
 	}
 
-	
 }

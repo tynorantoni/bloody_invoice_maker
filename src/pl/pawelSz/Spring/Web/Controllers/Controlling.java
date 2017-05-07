@@ -64,8 +64,6 @@ public class Controlling {
 		return "redirect:/show";
 	}
 
-	
-
 	// Temporary invoice table
 	@RequestMapping(value = "/show", method = RequestMethod.GET)
 	public String showPatientOrder(Model model) {
