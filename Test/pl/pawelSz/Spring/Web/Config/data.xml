@@ -23,7 +23,7 @@
 		<property name="password" value="${jdbc.password}"></property>
 		<property name="username" value="${jdbc.user}"></property>
 	</bean>
-	<bean id="transactionMenager"
+	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	<property name="dataSource" ref="dataSource"></property>
 	</bean>
